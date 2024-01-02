@@ -1,18 +1,10 @@
 import './App.css'
-import './components/menu.tsx'
-import Menu from "./components/menu.tsx";
+import Component from "./components/v0_vercel.tsx";
 
 function App() {
   return (
     <>
-        <div className={"grid gap-10"}>
-            <div className={""}>
-                <Menu></Menu>
-            </div>
-            <div>
-                Main content
-            </div>
-        </div>
+        <Component />
     </>
   )
 }
