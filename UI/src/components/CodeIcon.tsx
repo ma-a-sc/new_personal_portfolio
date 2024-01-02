@@ -1,7 +1,7 @@
 import React from "react";
 
 interface CodeIconProps {
-    props: String
+    props: string
 }
 
 const CodeIcon: React.FC<CodeIconProps> = (props) => {
