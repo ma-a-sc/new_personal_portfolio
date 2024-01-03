@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+}
  
 @layer base {
   :root {

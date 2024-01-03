@@ -8,10 +8,12 @@ import Experience from "@/components/Experience.tsx";
 import Education from "@/components/Education.tsx";
 import Contact from "@/components/Contact.tsx";
 import Footer from "@/components/Footer.tsx";
+import ScrollToTop from "@/components/ScrollToTop.tsx";
 
 function App() {
     return (
-        <div key="1" className="flex flex-col min-h-[100vh]">
+        <>
+        <div key="1" className="flex flex-col min-h-[100vh]" id="root">
             <Header/>
             <main className="flex-1">
                 <Greeting/>
@@ -23,7 +25,9 @@ function App() {
                 <Contact/>
                 <Footer/>
             </main>
+            <ScrollToTop/>
         </div>
+        </>
     )
 }
 

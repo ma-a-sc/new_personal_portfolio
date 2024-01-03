@@ -1,6 +1,15 @@
 import React from "react";
 import CodeIcon from "./CodeIcon.tsx"
+import HeaderDirektive from "@/components/HeaderDirektive.tsx";
 const Header: React.FC = () => {
+
+    const handleClickScroll = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <header className="px-4 lg:px-6 h-14 bg-white flex items-center justify-between sticky top-0 left-0 w-full">
         <div className="flex items-center">
@@ -8,24 +17,12 @@ const Header: React.FC = () => {
             <span className="text-xl font-bold ml-2">Mark Scharmann</span>
         </div>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-            <a className="text-sm font-medium hover:text-green-500" href="#about">
-                About
-            </a>
-            <a className="text-sm font-medium hover:text-green-500" href="#skills">
-                Skills
-            </a>
-            <a className="text-sm font-medium hover:text-green-500" href="#projects">
-                Projects
-            </a>
-            <a className="text-sm font-medium hover:text-green-500" href="#experience">
-                Experience
-            </a>
-            <a className="text-sm font-medium hover:text-green-500" href="#education">
-                Education
-            </a>
-            <a className="text-sm font-medium hover:text-green-500" href="#contact">
-                Contact
-            </a>
+            <HeaderDirektive call={handleClickScroll} id={"about"} label={"About"}/>
+            <HeaderDirektive call={handleClickScroll} id={"skills"} label={"Skills"}/>
+            <HeaderDirektive call={handleClickScroll} id={"projects"} label={"Projects"}/>
+            <HeaderDirektive call={handleClickScroll} id={"experience"} label={"Experience"}/>
+            <HeaderDirektive call={handleClickScroll} id={"education"} label={"Education"}/>
+            <HeaderDirektive call={handleClickScroll} id={"contact"} label={"Contact"}/>
         </nav>
     </header>
     )
