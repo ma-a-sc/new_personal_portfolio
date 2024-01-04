@@ -13,14 +13,15 @@ const Contact:React.FC = () => {
                     <div className="container px-4 md:px-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Contact</h2>
                         <p className="text-sm my-5 text-gray-500 dark:text-gray-400">Email: mark.scharmann.ms@gmail.com</p>
-                        <a className="text-blue-600 hover:text-green-500" href="https://www.linkedin.com/in/mark-scharmann-9202b92a5/">
+                        <a className="text-blue-600 hover:text-green-500" href="https://www.linkedin.com/in/mark-scharmann-9202b92a5/" target="_blank">
                             LinkedIn
                         </a>
-                        <a className="text-blue-600 hover:text-green-500 ml-4" href="https://github.com/ma-a-sc">
+                        <a className="text-blue-600 hover:text-green-500 ml-4" href="https://github.com/ma-a-sc" target="_blank">
                             GitHub
                         </a>
                         <a className="text-blue-600 hover:text-green-500 ml-4"
-                           href="https://www.hackerrank.com/profile/m98_hr">
+                           href="https://www.hackerrank.com/profile/m98_hr"
+                           target="_blank">
                             HackerRank
                         </a>
                     </div>
