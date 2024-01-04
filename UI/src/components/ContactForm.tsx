@@ -26,7 +26,7 @@ interface ContactFormProps{
                      </svg>
                  </button>
                  <CardHeader>
-                     <h2 className="text-xl font-bold">Contacting me!? I feel honored</h2>
+                     <h2 className="text-xl font-bold">Contacting me immediately!? I feel honored</h2>
                  </CardHeader>
 
              </div>
