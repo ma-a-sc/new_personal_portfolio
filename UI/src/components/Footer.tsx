@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <p className="text-xs text-gray-500 dark:text-gray-400">© Mark Scharmann. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
             <a className="text-xs hover:text-green-500" href="#">
-                Designed using v0 by Vercel, developed and deployed by Me.
+                Initial design created using v0 by Vercel. Further refined, developed and deployed by Me.
             </a>
         </nav>
     </footer>)
