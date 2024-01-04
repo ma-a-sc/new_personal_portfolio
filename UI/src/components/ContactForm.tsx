@@ -10,13 +10,14 @@ import { Button } from "@/components/ui/button"
 import React from "react";
 
 interface ContactFormProps{
+    props: any
     call: () => void
 }
 
- const ContactForm:React.FC<ContactFormProps> = ({call}) => {
+ const ContactForm:React.FC<ContactFormProps> = ({props, call}) => {
     return (
         <>
-         <Card className="w-full max-w-md mx-4 border-t-2 border-b-5 ">
+         <Card className="w-full max-w-md mx-4 border-t-2 border-b-5 " {...props()}>
              <div className={"container flex-row"}>
                  <button onClick={call} className={"mx-1 my-1 justify-end"}>
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
