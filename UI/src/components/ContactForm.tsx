@@ -32,8 +32,8 @@ interface ContactFormProps{
         const response = doContactPost(name, email, message)
         response.then(() => {
             console.log(response)
-          setSubmit(true)
         });
+        setSubmit(true)
         clearValues()
         console.log(submit)
     }
@@ -63,7 +63,7 @@ interface ContactFormProps{
                  </div>
                  <div className="space-y-2">
                      <Label htmlFor="email">Email</Label>
-                     <Input onChange={(e ) => {setEmail(e.currentTarget.value)}} className="w-full" id="email" placeholder="Enter your email address" required
+                     <Input onChange={(e ) => {setEmail(e.currentTarget.value)}}  className="w-full" id="email" placeholder="Enter your email address" required
                                type="email"/>
                     </div>
                     <div className="space-y-2">
