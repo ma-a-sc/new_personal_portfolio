@@ -13,18 +13,19 @@ import {useState} from "react";
 
 function App() {
     const [submit, setSubmit] = useState(false)
+    const [failed, setFailed] = useState(false)
     return (
         <>
         <div key="1" className="flex flex-col min-h-[100vh]" id="root">
             <Header/>
             <main className="flex-1">
-                <Greeting submit={setSubmit} submitState={submit}/>
+                <Greeting submit={setSubmit} submitState={submit} failed={setFailed} failedState={failed}/>
                 <About/>
                 <Skills/>
                 <Projects/>
                 <Experience/>
                 <Education/>
-                <Contact submit={setSubmit} submitState={submit}/>
+                <Contact submit={setSubmit} submitState={submit} failed={setFailed} failedState={failed}/>
                 <Footer/>
             </main>
             <ScrollToTop/>

@@ -9,32 +9,32 @@ import doContactPost from "@/API/ContactFormPost.ts";
 interface ContactProps{
     submit: Dispatch<SetStateAction<boolean>>
     submitState: boolean
+    failed: Dispatch<SetStateAction<boolean>>
+    failedState: boolean
 }
 
-const Contact:React.FC<ContactProps> = ({submit, submitState}) => {
+const Contact:React.FC<ContactProps> = ({submit, submitState, failed, failedState}) => {
     const [message, setMessage] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
-
-    const [failed, setFailed] = useState(false)
 
     const [failMessage, setFailMessage] = useState("")
 
     function sendMessage(name: string, email: string, message: string) {
         if (name === "") {
-            setFailed(true)
+            failed(true)
             submit(false)
             setFailMessage("Please provide a Name!")
             return;
         }
         if (email === "") {
-            setFailed(true)
+            failed(true)
             submit(false)
             setFailMessage("Please provide an email address!")
             return;
         }
         if (message === "") {
-            setFailed(true)
+            failed(true)
             submit(false)
             setFailMessage("Please provide a message!")
             return;
@@ -42,14 +42,14 @@ const Contact:React.FC<ContactProps> = ({submit, submitState}) => {
         const response = doContactPost(name, email, message)
         response.then((response) => {
             if (!response.ok){
-                setFailed(true)
+                failed(true)
                 submit(false)
                 setFailMessage("Please provide a valid email.")
             }
             console.log(response)
         });
         submit(true)
-        setFailed(false)
+        failed(false)
         console.log(submitState)
     }
 
@@ -97,10 +97,9 @@ const Contact:React.FC<ContactProps> = ({submit, submitState}) => {
                                           required/>
                             </div>
                             {
-                                failed ? <Button
-                                        disabled={true}
-                                        className="w-full text-red-400 bg-white">{failMessage}
-                                    </Button> :
+                                failedState ? <div
+                                        className="w-full text-red-400 text-center text-sm">{failMessage}
+                                    </div> :
                                     <></>
                             }
                             {

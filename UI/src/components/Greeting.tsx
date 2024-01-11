@@ -31,9 +31,11 @@ const ContactMeButton: React.FC<ContactMeButtonProps> = ({props , func, visible}
 interface GreetingProps {
     submit: Dispatch<SetStateAction<boolean>>
     submitState: boolean
+    failed: Dispatch<SetStateAction<boolean>>
+    failedState: boolean
 }
 
-const Greeting: React.FC<GreetingProps> = ({submit, submitState}) => {
+const Greeting: React.FC<GreetingProps> = ({submit, submitState, failed, failedState}) => {
 
     const [isExpanded, setExpanded] = useState(false);
     const {getCollapseProps, getToggleProps} = useCollapse({isExpanded});
@@ -57,7 +59,7 @@ const Greeting: React.FC<GreetingProps> = ({submit, submitState}) => {
                         <ContactMeButton props={getToggleProps} func={handleClick} visible={true}/>
                     }
 
-                    <ContactForm func={submit} submitState={submitState} props={getCollapseProps} call={handleClick} ></ContactForm>
+                    <ContactForm func={submit} submitState={submitState} failed={failed} failedState={failedState} props={getCollapseProps} call={handleClick} ></ContactForm>
                 </div>
             </div>
         </section>

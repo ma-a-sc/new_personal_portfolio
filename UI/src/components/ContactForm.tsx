@@ -15,32 +15,32 @@ interface ContactFormProps{
     call: () => void
     func: Dispatch<SetStateAction<boolean>>
     submitState: boolean
+    failed: Dispatch<SetStateAction<boolean>>
+    failedState: boolean
 }
 
- const ContactForm:React.FC<ContactFormProps> = ({props, call, func, submitState}) => {
+ const ContactForm:React.FC<ContactFormProps> = ({props, call, func, submitState, failed, failedState}) => {
     const [message, setMessage] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
-
-    const [failed, setFailed] = useState(false)
 
     const [failMessage, setFailMessage] = useState("")
 
     function sendMessage(name: string, email: string, message: string) {
         if (name === "") {
-            setFailed(true)
+            failed(true)
             func(false)
             setFailMessage("Please provide a Name!")
             return;
         }
         if (email === "") {
-            setFailed(true)
+            failed(true)
             func(false)
             setFailMessage("Please provide an email address!")
             return;
         }
         if (message === "") {
-            setFailed(true)
+            failed(true)
             func(false)
             setFailMessage("Please provide a message!")
             return;
@@ -48,14 +48,14 @@ interface ContactFormProps{
         const response = doContactPost(name, email, message)
         response.then((response) => {
             if (!response.ok){
-                setFailed(true)
+                failed(true)
                 func(false)
                 setFailMessage("Please provide a valid email.")
             }
             console.log(response)
         });
         func(true)
-        setFailed(false)
+        failed(false)
         console.log(submitState)
     }
 
@@ -91,10 +91,9 @@ interface ContactFormProps{
                                   required/>
                     </div>
                  {
-                     failed ? <Button
-                         disabled={true}
-                         className="w-full text-red-400 bg-white">{failMessage}
-                     </Button> :
+                     failedState ? <div
+                             className="w-full text-red-400 text-center text-sm">{failMessage}
+                         </div> :
                          <></>
                  }
                      {
