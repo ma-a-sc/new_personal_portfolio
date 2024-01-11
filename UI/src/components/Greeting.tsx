@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {useState} from "react";
 import {useCollapse} from "react-collapsed";
 import ContactForm from "@/components/ContactForm.tsx";
@@ -22,15 +22,18 @@ const ContactMeButton: React.FC<ContactMeButtonProps> = ({props , func, visible}
     } else {
     return (
         <a
-            className="opacity-10 hover:cursor-pointer inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-            {...props({onClick: func})}
+            className="opacity-0 inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
         >
-            Contact Me
         </a>
     )
 }}
 
-const Greeting: React.FC = () => {
+interface GreetingProps {
+    submit: Dispatch<SetStateAction<boolean>>
+    submitState: boolean
+}
+
+const Greeting: React.FC<GreetingProps> = ({submit, submitState}) => {
 
     const [isExpanded, setExpanded] = useState(false);
     const {getCollapseProps, getToggleProps} = useCollapse({isExpanded});
@@ -54,7 +57,7 @@ const Greeting: React.FC = () => {
                         <ContactMeButton props={getToggleProps} func={handleClick} visible={true}/>
                     }
 
-                    <ContactForm props={getCollapseProps} call={handleClick}></ContactForm>
+                    <ContactForm func={submit} submitState={submitState} props={getCollapseProps} call={handleClick} ></ContactForm>
                 </div>
             </div>
         </section>

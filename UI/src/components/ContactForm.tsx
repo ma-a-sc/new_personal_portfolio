@@ -7,38 +7,57 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import React, {useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import doContactPost from "@/API/ContactFormPost.ts";
 
 interface ContactFormProps{
     props: any
     call: () => void
+    func: Dispatch<SetStateAction<boolean>>
+    submitState: boolean
 }
 
- const ContactForm:React.FC<ContactFormProps> = ({props, call}) => {
+ const ContactForm:React.FC<ContactFormProps> = ({props, call, func, submitState}) => {
     const [message, setMessage] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
 
-    const [submit, setSubmit] = useState(false)
+    const [failed, setFailed] = useState(false)
 
-    function clearValues() {
-        setName("");
-        setMessage("");
-        setEmail("");
-    }
+    const [failMessage, setFailMessage] = useState("")
 
     function sendMessage(name: string, email: string, message: string) {
+        if (name === "") {
+            setFailed(true)
+            func(false)
+            setFailMessage("Please provide a Name!")
+            return;
+        }
+        if (email === "") {
+            setFailed(true)
+            func(false)
+            setFailMessage("Please provide an email address!")
+            return;
+        }
+        if (message === "") {
+            setFailed(true)
+            func(false)
+            setFailMessage("Please provide a message!")
+            return;
+        }
         const response = doContactPost(name, email, message)
-        response.then(() => {
+        response.then((response) => {
+            if (!response.ok){
+                setFailed(true)
+                func(false)
+                setFailMessage("Please provide a valid email.")
+            }
             console.log(response)
         });
-        setSubmit(true)
-        clearValues()
-        console.log(submit)
+        func(true)
+        setFailed(false)
+        console.log(submitState)
     }
-
-
 
     return (
         <>
@@ -71,9 +90,16 @@ interface ContactFormProps{
                         <Textarea onChange={(e ) => {setMessage(e.currentTarget.value)}} className="w-full min-h-[100px]" id="message" placeholder="Enter your message here"
                                   required/>
                     </div>
+                 {
+                     failed ? <Button
+                         disabled={true}
+                         className="w-full text-red-400 bg-white">{failMessage}
+                     </Button> :
+                         <></>
+                 }
                      {
-                         submit ? <Button
-                             className="w-full">Contact message has been received.
+                         submitState ? <Button
+                             className="w-full">Contact message has been sent.
                          </Button> : <Button
                              onClick={() => sendMessage(name, email, message)}
                              className="w-full hover:animate-pulse hover:bg-gradient-to-r hover:from-green-400 hover:to-yellow-500">Submit

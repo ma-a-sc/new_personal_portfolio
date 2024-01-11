@@ -3,7 +3,7 @@ package API
 import (
 	"encoding/json"
 	"github.com/gofiber/fiber/v2"
-	"net/mail"
+	"react_with_go_tutorial/API/util"
 	"strings"
 )
 
@@ -38,8 +38,8 @@ func validateEmail(providedEmail string) error {
 		}
 	}
 
-	_, err := mail.ParseAddress(providedEmail)
-	if err != nil {
+	valid := util.ValidateEmail(providedEmail)
+	if !valid {
 		return EmailValidationError{
 			ErrorMessage: "Email is invalid.",
 		}
@@ -55,8 +55,6 @@ func ContactHandler(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, "Failed to parse given data.")
 	}
 
-	// name and message validation should have happend on the client.
-	// to avoid roundtrips.
 	err2 := validateEmail(data.Email)
 	if err2 != nil {
 		return fiber.NewError(fiber.StatusBadRequest, "Email is invalid.")

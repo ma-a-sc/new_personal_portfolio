@@ -1,11 +1,58 @@
-import React from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
 import {Label} from "@/components/ui/label.tsx";
 import {Input} from "@/components/ui/input.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Button} from "@/components/ui/button.tsx";
+import doContactPost from "@/API/ContactFormPost.ts";
 
-const Contact:React.FC = () => {
+interface ContactProps{
+    submit: Dispatch<SetStateAction<boolean>>
+    submitState: boolean
+}
+
+const Contact:React.FC<ContactProps> = ({submit, submitState}) => {
+    const [message, setMessage] = useState("")
+    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
+
+    const [failed, setFailed] = useState(false)
+
+    const [failMessage, setFailMessage] = useState("")
+
+    function sendMessage(name: string, email: string, message: string) {
+        if (name === "") {
+            setFailed(true)
+            submit(false)
+            setFailMessage("Please provide a Name!")
+            return;
+        }
+        if (email === "") {
+            setFailed(true)
+            submit(false)
+            setFailMessage("Please provide an email address!")
+            return;
+        }
+        if (message === "") {
+            setFailed(true)
+            submit(false)
+            setFailMessage("Please provide a message!")
+            return;
+        }
+        const response = doContactPost(name, email, message)
+        response.then((response) => {
+            if (!response.ok){
+                setFailed(true)
+                submit(false)
+                setFailMessage("Please provide a valid email.")
+            }
+            console.log(response)
+        });
+        submit(true)
+        setFailed(false)
+        console.log(submitState)
+    }
+
     return (
         <section className="w-full py-24 bg-gray-100 dark:bg-gray-800" id="contact">
             <div className="container grid grid-cols-2">
@@ -36,22 +83,36 @@ const Contact:React.FC = () => {
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="name">Name</Label>
-                                <Input className="w-full" id="name" placeholder="Enter your name" required/>
+                                <Input onChange={(e ) => {setName(e.currentTarget.value)}} className="w-full" id="name" placeholder="Enter your name" required/>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input className="w-full" id="email" placeholder="Enter your email address" required
+                                <Input onChange={(e ) => {setEmail(e.currentTarget.value)}} className="w-full" id="email" placeholder="Enter your email address" required
                                        type="email"/>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="message">Message</Label>
-                                <Textarea className="w-full min-h-[100px]" id="message"
+                                <Textarea onChange={(e ) => {setMessage(e.currentTarget.value)}} className="w-full min-h-[100px]" id="message"
                                           placeholder="Enter your message here"
                                           required/>
                             </div>
-                            <Button
-                                className="w-full hover:animate-pulse hover:bg-gradient-to-r hover:from-green-400 hover:to-yellow-500 ">Submit</Button>
-                        </CardContent>
+                            {
+                                failed ? <Button
+                                        disabled={true}
+                                        className="w-full text-red-400 bg-white">{failMessage}
+                                    </Button> :
+                                    <></>
+                            }
+                            {
+                                submitState ? <Button
+                                    className="w-full">Contact message has been sent.
+                                </Button> : <Button
+                                    onClick={() => sendMessage(name, email, message)}
+                                    className="w-full hover:animate-pulse hover:bg-gradient-to-r hover:from-green-400 hover:to-yellow-500">Submit
+                                </Button>
+                            }
+
+                             </CardContent>
                     </Card>
                 </div>
             </div>
