@@ -1,13 +1,21 @@
 package main
 
 import (
+	"embed"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/favicon"
+	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/joho/godotenv"
 	"log"
+	"net/http"
 	"os"
 	"react_with_go_tutorial/API"
+	"react_with_go_tutorial/DB/utils"
 )
+
+//go:embed static/*
+var embedDirStatic embed.FS
 
 func goDotEnvVariable(key string) string {
 	err := godotenv.Load(".env")
@@ -19,26 +27,49 @@ func goDotEnvVariable(key string) string {
 }
 
 func main() {
-
+	db := utils.CheckIfDBPopulated()
+	if db == nil {
+		db = utils.InitDB()
+	}
+	defer db.Close()
+	//var count int
+	//db.QueryRow("SELECT COUNT(*) FROM PROJECTS").Scan(&count)
+	//fmt.Println(count)
 	environment := goDotEnvVariable("ENVIRONMENT")
-	prodUrl := goDotEnvVariable("PROD_URL")
+	var url string
+	if environment == "Test" {
+		url = goDotEnvVariable("LOCAL_URL")
+	} else {
+		url = goDotEnvVariable("PROD_URL")
+	}
 	app := fiber.New()
 
 	if environment == "Test" {
 		app.Use(cors.New())
 	} else {
 		app.Use(cors.New(cors.Config{
-			AllowOrigins: prodUrl,
+			AllowOrigins: url,
 		}))
 	}
 
+	app.Use(favicon.New(favicon.Config{
+		File: "./favicon.svg",
+		URL:  "/favicon",
+	}))
+
+	app.Use("/static", filesystem.New(filesystem.Config{
+		Root:       http.FS(embedDirStatic),
+		PathPrefix: "static",
+		Browse:     true,
+	})).Name("R-projects")
+
 	// serves Single Page application on "/"
 	// assume static file at UI/dist folder
-	app.Static("/", "./UI/dist")
+	app.Static("/", "./UI/dist").Name("index")
 
 	app.Post("/contact", func(c *fiber.Ctx) error {
 		return API.ContactHandler(c)
-	})
+	}).Name("Contact")
 
 	log.Fatal(app.Listen(":3000"))
 }
