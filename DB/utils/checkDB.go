@@ -9,7 +9,7 @@ import (
 )
 
 func CheckIfDBPopulated() *sql.DB {
-	database, err := sql.Open("sqlite3", "../maasc.db")
+	database, err := sql.Open("sqlite3", "./maasc.db")
 	if err != nil {
 		fmt.Println("It seems like your database is not present.")
 		log.Fatal(err)

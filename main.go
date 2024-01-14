@@ -71,5 +71,10 @@ func main() {
 		return API.ContactHandler(c)
 	}).Name("Contact")
 
+	app.Get("/projects", func(c *fiber.Ctx) error {
+		projects := utils.GetProjectsFromDB(db)
+		return c.JSON(projects)
+	})
+
 	log.Fatal(app.Listen(":3000"))
 }

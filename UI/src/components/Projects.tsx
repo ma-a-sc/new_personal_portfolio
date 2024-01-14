@@ -1,7 +1,11 @@
 import React from "react";
 import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
+import getProjects from "@/API/Projects.ts";
+import {Project} from "@/interfaces/project.ts";
 
 const Projects:React.FC = () => {
+    const projectsResponse = getProjects()
+
     return (
         <section className="w-full py-24" id="projects">
             <div className="container px-4 md:px-6">
