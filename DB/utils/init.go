@@ -82,7 +82,7 @@ func genInitalProjects() []Project {
 		Description: "In this project I wrote a basic webscraper to get all the articles published until then of antiwar.com. The idea was to collect data to do text mining on it, but I never did the analysis.",
 		LinkLabel:   "Github",
 		Link:        "https://github.com/ma-a-sc/scraping_antiwar.com",
-		Internal:    true,
+		Internal:    false,
 		Rank:        5,
 	})
 
@@ -115,7 +115,7 @@ func genInitalProjects() []Project {
 
 	projects = append(projects, Project{
 		Title:       "Cli Password Manager",
-		Description: "Ridiculously basic youtube to mp3 download web app.",
+		Description: "One of my first projects. Trying to develope a CLI based password manager. The encryption was done using fernet.",
 		LinkLabel:   "Github",
 		Link:        "https://github.com/ma-a-sc/PwManager",
 		Internal:    false,

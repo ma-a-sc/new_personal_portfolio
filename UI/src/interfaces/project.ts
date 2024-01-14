@@ -1,12 +1,8 @@
 export interface Project {
     Title: string
     Description: string
-    Link: Link
+    Link: string
+    LinkLabel: string
+    Internal: boolean
     Rank: number
-}
-
-export interface Link {
-    label: string
-    internal: boolean
-    link: string
 }

@@ -1,14 +1,21 @@
 import React from "react";
 import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
-import {Link, Project} from "@/interfaces/project.ts";
 
-const ProjectCard: React.FC<Project> = ({Title, Description, Link}) => {
+interface ProjectCardProps {
+    Title: string
+    Description: string
+    Link: string
+    LinkLabel: string
+    Internal: boolean
+}
 
-    function getLink(Link: Link): string {
-        if (Link.internal) {
-            return "http://127.0.0.1:3000" + Link.link
+const ProjectCard: React.FC<ProjectCardProps> = ({Title, Description, Link, LinkLabel, Internal}) => {
+
+    function getLink(Internal: boolean, Link: string): string {
+        if (Internal) {
+            return "http://127.0.0.1:3000/static/" + Link
         }
-        return Link.link
+        return Link
     }
 
     return (
@@ -18,8 +25,9 @@ const ProjectCard: React.FC<Project> = ({Title, Description, Link}) => {
             </CardHeader>
             <CardContent>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{Description}</p>
-                <a className="text-blue-600 hover:text-green-500" target="_blank" href={getLink(Link)}>
-                    {Link.label}
+                <a className="text-blue-600 hover:text-green-500" target="_blank"
+                   href={getLink(Internal, Link)}>
+                    {LinkLabel}
                 </a>
             </CardContent>
         </Card>
