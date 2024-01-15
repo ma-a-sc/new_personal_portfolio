@@ -56,7 +56,7 @@ func main() {
 	}
 
 	app.Use(favicon.New(favicon.Config{
-		File: "./favicon.svg",
+		File: "./favicon.png",
 		URL:  "/favicon",
 	}))
 
