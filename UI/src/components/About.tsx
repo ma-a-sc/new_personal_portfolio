@@ -21,14 +21,12 @@ const About: React.FC = () => {
                         Code, coffee and politics. That is what I am about.
                     </p>
                     <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
-                        At the moment I am working at Fintiba GmbH in Frankfurt as a backend developer. Previously I was
-                        a
-                        Political Science student at the Goethe University Frankfurt. I got into software development
+                        At the moment I am working at Fintiba GmbH in Frankfurt as a backend developer. Previously I was studying
+                        Political Science at the Goethe University Frankfurt. I got into software development
                         during my studies. Statistical analysis and quantitative research interested me for
-                        which one needs to write code to analyse large datasets and write analysis.
+                        which one needs to write code to analyse large datasets.
                         After the passion sparked I started learning to code by working through books and coding
-                        projects which in
-                        the end landed me my current job.
+                        projects which in the end landed me my current job.
                     </p>
                     <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
                         I have a passion for good coffee and if you want to do me a favor invite me over coffee! Show me

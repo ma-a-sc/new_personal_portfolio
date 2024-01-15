@@ -31,10 +31,6 @@ func main() {
 	if db == nil {
 		db = utils.InitDB()
 	}
-	defer db.Close()
-	//var count int
-	//db.QueryRow("SELECT COUNT(*) FROM PROJECTS").Scan(&count)
-	//fmt.Println(count)
 	environment := goDotEnvVariable("ENVIRONMENT")
 	emailAPIKey := goDotEnvVariable("RESEND_API_KEY")
 	personalMail := goDotEnvVariable("PERSONAL_MAIL")

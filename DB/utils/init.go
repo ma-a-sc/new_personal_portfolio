@@ -110,16 +110,16 @@ func genInitalProjects() []Project {
 		LinkLabel:   "Github",
 		Link:        "https://github.com/ma-a-sc/youtube_dl_web_app",
 		Internal:    false,
-		Rank:        8,
+		Rank:        9,
 	})
 
 	projects = append(projects, Project{
 		Title:       "Cli Password Manager",
-		Description: "One of my first projects. Trying to develope a CLI based password manager. The encryption was done using fernet.",
+		Description: "One of my first projects. Trying to develop a CLI based password manager. The encryption was done using fernet.",
 		LinkLabel:   "Github",
 		Link:        "https://github.com/ma-a-sc/PwManager",
 		Internal:    false,
-		Rank:        9,
+		Rank:        8,
 	})
 
 	return projects
