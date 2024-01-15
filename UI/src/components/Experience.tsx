@@ -13,6 +13,16 @@ const Experience: React.FC = () => {
                 <CardContent>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                         Backend development using a standard Python stack (Django, MySQL, Celery, Docker).
+
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                        At this job I am responsible for code related to the provided insurance products.
+                        This means customer facing code, internal tools (mainly functions for the internal customer
+                        manager) as well as
+                        interfacing code with the insurance partners.
+                        Thousands of customers as well as coworkers hence depend on the code being written by Me.
+                        Concise, readable and correct code hence is of the essence, because the customers rely on my code
+                        to work and their Visa process going smoothly.
                     </p>
                 </CardContent>
             </Card>
@@ -22,7 +32,8 @@ const Experience: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Developing and teaching customized fitness plans as well as customer care/trainings assistance and minor administrative tasks.
+                        Developing and teaching customized fitness plans as well as customer care/trainings assistance
+                        and minor administrative tasks.
                     </p>
                 </CardContent>
             </Card>
