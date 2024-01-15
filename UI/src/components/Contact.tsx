@@ -59,7 +59,7 @@ const Contact:React.FC<ContactProps> = ({submit, submitState, failed, failedStat
                 <div>
                     <div className="container px-4 md:px-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Contact</h2>
-                        <p className="text-sm my-5 text-gray-500 dark:text-gray-400">Email: mark.scharmann.ms@gmail.com</p>
+                        <p className="text-sm my-5 text-gray-500 dark:text-gray-400">You can find me on Linkedin, Github or directly contact me via the form on the right. Your choice!  I just included HackerRank for references.</p>
                         <a className="text-blue-600 hover:text-green-500" href="https://www.linkedin.com/in/mark-scharmann-9202b92a5/" target="_blank">
                             LinkedIn
                         </a>

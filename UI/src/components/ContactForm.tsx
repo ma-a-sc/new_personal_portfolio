@@ -77,7 +77,7 @@ interface ContactFormProps{
 
              <CardContent className="space-y-4">
                  <div className="space-y-2">
-                     <Label htmlFor="name">Name</Label>
+                     <Label htmlFor="name" >Name</Label>
                      <Input onChange={(e ) => {setName(e.currentTarget.value)}} className="w-full" id="name" placeholder="Enter your name" required/>
                  </div>
                  <div className="space-y-2">

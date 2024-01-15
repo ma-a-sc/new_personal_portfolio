@@ -36,6 +36,9 @@ func main() {
 	//db.QueryRow("SELECT COUNT(*) FROM PROJECTS").Scan(&count)
 	//fmt.Println(count)
 	environment := goDotEnvVariable("ENVIRONMENT")
+	emailAPIKey := goDotEnvVariable("RESEND_API_KEY")
+	personalMail := goDotEnvVariable("PERSONAL_MAIL")
+
 	var url string
 	if environment == "Test" {
 		url = goDotEnvVariable("LOCAL_URL")
@@ -68,7 +71,7 @@ func main() {
 	app.Static("/", "./UI/dist").Name("index")
 
 	app.Post("/contact", func(c *fiber.Ctx) error {
-		return API.ContactHandler(c)
+		return API.ContactHandler(c, emailAPIKey, personalMail)
 	}).Name("Contact")
 
 	app.Get("/projects", func(c *fiber.Ctx) error {

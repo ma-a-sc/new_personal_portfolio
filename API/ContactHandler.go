@@ -47,17 +47,18 @@ func validateEmail(providedEmail string) error {
 	return nil
 }
 
-func ContactHandler(c *fiber.Ctx) error {
+func ContactHandler(c *fiber.Ctx, apiKey string, personalMail string) error {
 	c.Accepts("json", "text")
-	data := IncomingData{}
-	err := json.Unmarshal(c.Body(), &data)
+	incomingData := IncomingData{}
+	err := json.Unmarshal(c.Body(), &incomingData)
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, "Failed to parse given data.")
 	}
 
-	err2 := validateEmail(data.Email)
+	err2 := validateEmail(incomingData.Email)
 	if err2 != nil {
 		return fiber.NewError(fiber.StatusBadRequest, "Email is invalid.")
 	}
+	util.SendContactMail(apiKey, personalMail, incomingData.Name, incomingData.Email, incomingData.Message)
 	return c.JSON(Response{Success: true})
 }
