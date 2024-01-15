@@ -2,6 +2,12 @@ import React from "react";
 import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
 
 const Education: React.FC = () => {
+    const handleClickScroll = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <section className="w-full py-24" id="education">
             <div className="container px-4 md:px-6">
@@ -14,11 +20,16 @@ const Education: React.FC = () => {
                     </CardHeader>
                     <CardContent>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                            Foundational education in Political Science (economics, philosophy, research methodology and many more aspects)
+                            Foundational education in Political Science (economics, philosophy, research methodology and
+                            many more aspects)
                             with a specialization in quantitative research and analysis.
                             Wrote my Bachelors Thesis on the impact of the individuals identity on the attitudes towards
-                            different integration areas of the EU. To achieve this task I analyzed the Eurobarometer 92.3 open
+                            different integration areas of the EU. To achieve this task I analyzed the Eurobarometer
+                            92.3 open
                             data set issued by the European Commission using the R programming language.
+                        </p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            You can see the code in the <a className="hover:text-green-500 cursor-pointer" onClick={() => {handleClickScroll("projects")}}>projects</a> above.
                         </p>
                     </CardContent>
                 </Card>

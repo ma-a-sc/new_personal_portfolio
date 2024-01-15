@@ -6,9 +6,9 @@ const Footer: React.FC = () => {
             <p className="text-xs text-gray-500 dark:text-gray-400">© Mark Scharmann. All rights reserved.</p>
             <nav className="sm:ml-auto flex gap-4 sm:gap-6">
                 <p className="text-xs">
-                    Initial design created using <a className="hover:text-green-500 cursor-pointer">v0 by Vercel</a>.
+                    Initial design created using <a className="hover:text-green-500 cursor-pointer" target="_blank" href="https://v0.dev/">v0 by Vercel</a>.
                     Further refined, developed and deployed by Me on <a
-                    className="hover:text-green-500 cursor-pointer">Railway</a>.
+                    className="hover:text-green-500 cursor-pointer" target="_blank" href="https://railway.app/">Railway</a>.
                 </p>
             </nav>
             <p className="text-xs"> <a className="hover:text-green-500" target="_blank" href="https://icons8.com/icon/B37a7ScLB0NO/m">M</a> icon by <a href="https://icons8.com" className="hover:text-green-500" target="_blank">Icons8</a></p>

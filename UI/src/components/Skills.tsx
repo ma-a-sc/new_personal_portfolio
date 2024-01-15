@@ -15,16 +15,16 @@ const Skills: React.FC = () => {
                     Django
                 </Badge>
                 <Badge className="text-sm py-1 px-2" variant="secondary">
-                    MySQL
-                </Badge>
-                <Badge className="text-sm py-1 px-2" variant="secondary">
-                    Docker
+                    SQL
                 </Badge>
                 <Badge className="text-sm py-1 px-2" variant="secondary">
                     Golang
                 </Badge>
                 <Badge className="text-sm py-1 px-2" variant="secondary">
                     React
+                </Badge>
+                <Badge className="text-sm py-1 px-2" variant="secondary">
+                    JS/TS
                 </Badge>
             </div>
             <h3 className="tracking-tighter sm:text-5xl mb-12 my-12">Data</h3>

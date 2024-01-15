@@ -59,12 +59,22 @@ const Contact:React.FC<ContactProps> = ({submit, submitState, failed, failedStat
                 <div>
                     <div className="container px-4 md:px-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Contact</h2>
-                        <p className="text-sm my-5 text-gray-500 dark:text-gray-400">You can find me on Linkedin, Github or directly contact me via the form on the right. Your choice!  I just included HackerRank for references.</p>
-                        <a className="text-blue-600 hover:text-green-500" href="https://www.linkedin.com/in/mark-scharmann-9202b92a5/" target="_blank">
+                        <p className="text-sm my-5 text-gray-500 dark:text-gray-400">You can find me on Linkedin, Github
+                            or directly contact me via the form on the right. Your choice!</p>
+                        <a className="text-blue-600 hover:text-green-500"
+                           href="https://www.linkedin.com/in/mark-scharmann-9202b92a5/" target="_blank">
                             LinkedIn
                         </a>
-                        <a className="text-blue-600 hover:text-green-500 ml-4" href="https://github.com/ma-a-sc" target="_blank">
+                        <a className="text-blue-600 hover:text-green-500 ml-4" href="https://github.com/ma-a-sc"
+                           target="_blank">
                             GitHub
+                        </a>
+                    </div>
+                    <div className="container px-4 md:px-6">
+                        <p className="text-sm my-5 text-gray-500 dark:text-gray-400">In case you are interested here are more coding references.</p>
+                        <a className="text-blue-600 hover:text-green-500"
+                           href="https://www.freecodecamp.org/fcc03ac07a4-11e1-4eb7-a6db-a05cd189fa3a" target="_blank">
+                            freeCodeCamp
                         </a>
                         <a className="text-blue-600 hover:text-green-500 ml-4"
                            href="https://www.hackerrank.com/profile/m98_hr"
@@ -83,11 +93,15 @@ const Contact:React.FC<ContactProps> = ({submit, submitState, failed, failedStat
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="name">Name</Label>
-                                <Input onChange={(e ) => {setName(e.currentTarget.value)}} className="w-full" id="name" placeholder="Enter your name" required/>
+                                <Input onChange={(e) => {
+                                    setName(e.currentTarget.value)
+                                }} className="w-full" id="name" placeholder="Enter your name" required/>
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input onChange={(e ) => {setEmail(e.currentTarget.value)}} className="w-full" id="email" placeholder="Enter your email address" required
+                                <Input onChange={(e) => {
+                                    setEmail(e.currentTarget.value)
+                                }} className="w-full" id="email" placeholder="Enter your email address" required
                                        type="email"/>
                             </div>
                             <div className="space-y-2">
