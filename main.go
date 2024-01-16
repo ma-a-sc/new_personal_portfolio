@@ -64,6 +64,7 @@ func main() {
 
 	// serves Single Page application on "/"
 	// assume static file at UI/dist folder
+	//" "./UI/dist"
 	app.Static("/", "./UI/dist").Name("index")
 
 	app.Post("/contact", func(c *fiber.Ctx) error {
