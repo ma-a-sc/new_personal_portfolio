@@ -6,7 +6,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
-	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
@@ -107,39 +106,16 @@ var projects = []Project{{
 //go:embed static/*
 var embedDirStatic embed.FS
 
-func goDotEnvVariable(key string) string {
-	err := godotenv.Load(".env")
-
-	if err != nil {
-		return "Railway"
-	}
-	return os.Getenv(key)
-}
-
-func getEnvironment() string {
-	environment := goDotEnvVariable("ENVIRONMENT")
-	return environment
-}
-
 func main() {
 	port := os.Getenv("PORT")
 	emailAPIKey := os.Getenv("RESEND_API_KEY")
 	personalMail := os.Getenv("PERSONAL_MAIL")
-	currentUrl := os.Getenv("ORIGIN_URL")
-	environment := getEnvironment()
 	if port == "" {
 		port = "3000"
 	}
 
 	app := fiber.New()
-
-	if environment == "Test" {
-		app.Use(cors.New())
-	} else {
-		app.Use(cors.New(cors.Config{
-			AllowOrigins: currentUrl,
-		}))
-	}
+	app.Use(cors.New())
 
 	app.Use(favicon.New(favicon.Config{
 		File: "./favicon.png",
