@@ -5,7 +5,7 @@ async function doContactPost(name: string, email: string, message: string):Promi
         "Message": message
     }
     return await fetch(
-        "http://127.0.0.1:3000/contact", {
+        "https://maasc.up.railway.app/contact", {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(post_data)

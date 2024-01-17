@@ -1,5 +1,5 @@
 async function getProjects(): Promise<Response> {
-    return fetch("http://127.0.0.1:3000/projects",{
+    return fetch("https://maasc.up.railway.app/projects",{
         method: 'Get',
         mode: 'cors'
     })
