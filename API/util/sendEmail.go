@@ -3,6 +3,7 @@ package util
 import (
 	"fmt"
 	"github.com/resend/resend-go/v2"
+	"log"
 )
 
 func SendContactMail(apiKey string, personalMail string, senderName string, senderEmail string, senderMessage string) {
@@ -18,7 +19,7 @@ func SendContactMail(apiKey string, personalMail string, senderName string, send
 
 	sent, err := client.Emails.Send(params)
 	if err != nil {
-		fmt.Println("Error sending email:", err)
+		log.Fatal("Error sending email:", err)
 		return
 	}
 	fmt.Println("Email sent successfully:", sent)
