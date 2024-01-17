@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({Title, Description, Link, Link
 
     function getLink(Internal: boolean, Link: string): string {
         if (Internal) {
-            return "http://127.0.0.1:3000/static/" + Link
+            return "http://https://maasc.up.railway.app//static/" + Link
         }
         return Link
     }
