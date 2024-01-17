@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["...", 'nodejs_21', 'gcc']
+
+[phases.install]
+cmds = ['...', 'cd UI', 'npm install vite@latest', 'cd ..', 'go get']
+
+[phases.build]
+cmds = ['...', 'CGO_ENABLED=1 GOOS=linux go build -o ./server']
+dependsOn = ['install']
+
+[start]
+cmd = 'ls && ./server'
