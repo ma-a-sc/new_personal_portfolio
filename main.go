@@ -139,5 +139,5 @@ func main() {
 		return c.JSON(projects)
 	})
 
-	log.Fatal(app.Listen("0.0.0.0" + port))
+	log.Fatal(app.Listen("0.0.0.0:" + port))
 }
