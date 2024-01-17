@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
+	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
@@ -106,8 +107,18 @@ var projects = []Project{{
 //go:embed static/*
 var embedDirStatic embed.FS
 
-func getEnvironment() string {
+func goDotEnvVariable(key string) string {
+	err := godotenv.Load(".env")
 
+	if err != nil {
+		return "Railway"
+	}
+	return os.Getenv(key)
+}
+
+func getEnvironment() string {
+	environment := goDotEnvVariable("ENVIRONMENT")
+	return environment
 }
 
 func main() {
