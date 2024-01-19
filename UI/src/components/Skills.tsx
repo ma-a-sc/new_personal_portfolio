@@ -71,7 +71,7 @@ const Development: React.FC = () => {
                     setShowDevelopment(!isExpanded)
                 }
             })}>
-                <h3 className="tracking-tighter sm:text-5xl mt-6">Development</h3>
+                <h3 className="tracking-tighter text-5xl mt-6">Development</h3>
             </button>
             <DevelopmentBadges props={getCollapseProps}/>
             <p className="my-6">
@@ -83,9 +83,10 @@ const Development: React.FC = () => {
                 Kotlin and
                 Rust I landed on the decision of learning Go indepth. As it is a lot of fun and I think the language has
                 a lot going for it.
-                Furthermore, I learned the basics of React, with which also
-                this <a className="bg-clip-text text-transparent bg-gradient-to-br from-green-400 to-yellow-500"
+                Furthermore, I learned the basic React, with which also
+                this <a className="text-blue-600 hover:text-green-500"
                         href="https://github.com/ma-a-sc/new_personal_portfolio" target="_blank">website</a> was developed.
+                React is overkill for such a website, but hey I wanted to experiment with it.
             </p>
         </>
     )
@@ -108,12 +109,12 @@ const Data: React.FC = () => {
                     setShowData(!isExpanded)
                 }
             })}>
-                <h3 className="tracking-tighter sm:text-5xl mt-6">Data</h3>
+                <h3 className="tracking-tighter text-5xl mt-6">Data</h3>
             </button>
             <DataBadges props={getCollapseProps}/>
             <p className="my-6">
                 In university I got into statistical analysis and R. I really enjoyed it and eventually wrote my Bachelors Thesis
-                using R to analyse a dataset. The code of my BA can be found further down in the <a className="bg-clip-text text-transparent bg-gradient-to-br from-green-400 to-yellow-500 hover:cursor-pointer" onClick={() => handleClickScroll("projects")}>Projects</a> section.
+                using R to analyse a dataset. The code of my BA can be found further down in the <a className="text-blue-600 hover:text-green-500 text-center hover:cursor-pointer" onClick={() => handleClickScroll("projects")}>Projects</a> section.
                 Besides that I got into touch with analyzing texts (Text Mining) and gathering data through web scraping. Some of the projects are down below.
                 At the moment I am trying to implement a web scraping tool in Go for myself.
             </p>

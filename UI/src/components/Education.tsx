@@ -30,7 +30,7 @@ const Education: React.FC = () => {
                         </p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                             You can see the code in the <a
-                            className="bg-clip-text text-transparent bg-gradient-to-br from-green-400 to-yellow-500 hover:cursor-pointer"
+                            className="text-blue-600 hover:text-green-500 text-center hover:cursor-pointer"
                             onClick={() => handleClickScroll("projects")}>Projects</a> above.
                         </p>
                     </CardContent>

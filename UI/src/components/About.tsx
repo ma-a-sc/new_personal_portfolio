@@ -17,7 +17,7 @@ const About: React.FC = () => {
                 />
                 <div className="flex flex-col justify-center space-y-4">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
-                    <p className="max-w-[600px] text-gray-500 md:relaxed dark:text-gray-400">
+                    <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
                         Code, coffee and politics. That is what I am about.
                     </p>
                     <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
