@@ -29,7 +29,9 @@ const Education: React.FC = () => {
                             data set issued by the European Commission using the R programming language.
                         </p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                            You can see the code in the <a className="hover:text-green-500 cursor-pointer" onClick={() => {handleClickScroll("projects")}}>projects</a> above.
+                            You can see the code in the <a
+                            className="bg-clip-text text-transparent bg-gradient-to-br from-green-400 to-yellow-500 hover:cursor-pointer"
+                            onClick={() => handleClickScroll("projects")}>Projects</a> above.
                         </p>
                     </CardContent>
                 </Card>

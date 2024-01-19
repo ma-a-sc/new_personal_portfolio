@@ -39,7 +39,7 @@ const Projects:React.FC = () => {
             <section className="w-full py-24" id="projects">
                 <div className="container px-4 md:px-6">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Projects</h2>
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid md:gap-6 sm:grid-cols-1 lg:grid-cols-3">
 
                         {
                             projects.length === 0 ? (
@@ -59,7 +59,7 @@ const Projects:React.FC = () => {
                         }
                         {
                             allShown ? <></>:
-                                <a className="text-blue-600 hover:text-green-500 text-center col-start-2  mx-auto cursor-pointer"
+                                <a className="text-blue-600 hover:text-green-500 text-center lg:col-start-2  mx-auto cursor-pointer"
                                    onClick={() => toggle()}>Load
                                     All Projects
                                 </a>

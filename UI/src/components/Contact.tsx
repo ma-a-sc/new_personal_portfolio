@@ -55,7 +55,7 @@ const Contact:React.FC<ContactProps> = ({submit, submitState, failed, failedStat
 
     return (
         <section className="w-full py-24 bg-gray-100 dark:bg-gray-800" id="contact">
-            <div className="container grid grid-cols-2">
+            <div className="container grid grid-cols-1 gap-16 md:grid-cols-2">
                 <div>
                     <div className="container px-4 md:px-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-12">Contact</h2>

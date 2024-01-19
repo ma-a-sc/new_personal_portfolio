@@ -21,8 +21,8 @@ const Experience: React.FC = () => {
                         manager) as well as
                         interfacing code with the insurance partners.
                         Thousands of customers as well as coworkers hence depend on the code being written by Me.
-                        Concise, readable and correct code hence is of the essence, because the customers rely on my code
-                        to work and their Visa process going smoothly.
+                        Concise, readable and correct code hence is of the essence, because the customers rely on me
+                        to get their Visa for studying or working in Germany.
                     </p>
                 </CardContent>
             </Card>
