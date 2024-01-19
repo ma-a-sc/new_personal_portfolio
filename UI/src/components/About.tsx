@@ -6,11 +6,11 @@ const About: React.FC = () => {
             <div className="container grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:gap-12">
                 <img
                     alt="Mark Scharmann"
-                    className="mx-auto order-last shadow-xl"
+                    className="mx-auto order-last shadow-xl max-w-200 max-h-200"
                     height="2893"
                     src="/me_full.jpeg"
                     style={{
-                        aspectRatio: "800/800",
+                        aspectRatio: "400/400",
                         objectFit: "cover",
                     }}
                     width="2388"
