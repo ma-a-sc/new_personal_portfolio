@@ -1,4 +1,4 @@
-const testing = "test"
+const testing = undefined
 
 async function getProjects(): Promise<Response> {
     if (testing == undefined) {
