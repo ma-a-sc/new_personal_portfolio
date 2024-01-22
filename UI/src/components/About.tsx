@@ -4,17 +4,17 @@ const About: React.FC = () => {
     return(
         <section className="w-full py-24" id="about">
             <div className="container grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:gap-12">
-                <img
-                    alt="Mark Scharmann"
-                    className="mx-auto order-last shadow-xl max-w-200 max-h-200"
-                    height="2893"
-                    src="/me_full.jpeg"
-                    style={{
-                        aspectRatio: "400/400",
-                        objectFit: "cover",
-                    }}
-                    width="2388"
-                />
+                    <img
+                        alt="Mark Scharmann"
+                        className="mx-auto order-last shadow-2xl max-w-60 max-h-60 md:max-w-96 md:max-h-96"
+                        height="2893"
+                        src="/me_full.jpeg"
+                        style={{
+                            aspectRatio: "300/300",
+                            objectFit: "cover",
+                        }}
+                        width="2388"
+                    />
                 <div className="flex flex-col justify-center space-y-4">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
                     <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
